@@ -6,6 +6,10 @@ header h1 {
   margin-bottom: 20px;
 }
 
+.button {
+  position: absolute;
+}
+
 .carousel-cell {
   width: 100%;
   height: 50vh;
