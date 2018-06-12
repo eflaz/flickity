@@ -7,8 +7,14 @@ header {
 	margin-bottom: 20px;
 }
 
+.main-carousel {
+	position: relative;
+}
+
 .button {
-	position: absolute;
+	position: fixed;
+	top: 10px;
+	right: 10px;
 }
 
 .carousel-cell {
@@ -26,4 +32,9 @@ header {
 			color: white;
 		}
 	}
+}
+.progress-bar {
+  height: 20px;
+  width: 0;
+  background: #333;
 }
