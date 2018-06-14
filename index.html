@@ -1,51 +1,64 @@
 <!DOCTYPE html>
 <html>
-<head>
-	<meta charset="UTF-8">
-	<title>FLickity Carousel</title>
-	<link href="vendor/normalize.css" rel="stylesheet" type="text/css">
-	<link href="vendor/flickity.min.css" rel="stylesheet" type="text/css">
-	<link href="css/style.css" rel="stylesheet" type="text/css">
-</head>
-<body>
-	<header>
-		<h1>My favourite fruits!</h1>
-	</header>
-	<div class="carousel-container">
-		<div class="main-carousel">
-			<div class="carousel-cell" id="kiwi" style="background-image: url(https://images.pexels.com/photos/867349/pexels-photo-867349.jpeg?auto=compress&cs=tinysrgb&h=750&w=1260)">
+	<head>
+		<meta charset="UTF-8">
+		<title>FLickity Carousel</title>
+		<link href="vendor/normalize.css" rel="stylesheet" type="text/css">
+		<link href="vendor/flickity.min.css" rel="stylesheet" type="text/css">
+		<link href="css/style.css" rel="stylesheet" type="text/css">
+	</head>
+	<body>
+		<header>
+			<h1>My favourite fruits!</h1>
+		</header>
+		<div class="carousel-container">
+			<div class="main-carousel">
+			</div>
+			<button id="button-restart">RESTART</button>
+		</div>
+		<div class="progress-bar"></div>
+		<script>
+			var slidesData = [
+				{
+					image: "https://images.pexels.com/photos/867349/pexels-photo-867349.jpeg?auto=compress&cs=tinysrgb&h=750&w=1260", 
+					title: 'kiwi',
+			    	description: "<p>Lorem ipsum.</p>"
+				},
+				{
+					image: 'https://images.pexels.com/photos/46174/strawberries-berries-fruit-freshness-46174.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940', 
+					title: 'truskawki',
+			    	description: '<p>Lorem ipsum.</p> <img src="http://via.placeholder.com/400x200" alt="Photo placeholder"> <p>Dolor sit.</p>'
+				},
+				{
+					image: 'https://images.pexels.com/photos/53371/oranges-citrus-fruits-citrus-fruit-fruit-53371.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940', 
+					title: 'pomarancze',
+			    	description: '<p>Lorem ipsum.</p> <img src="http://via.placeholder.com/400x200" alt="Photo placeholder"> <p>Dolor sit.</p>'
+				},
+				{
+					image: 'https://images.pexels.com/photos/41957/banana-fruit-healthy-yellow-41957.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940', 
+					title: 'banany',
+			    	description: '<p>Lorem ipsum.</p> <img src="http://via.placeholder.com/400x200" alt="Photo placeholder"> <p>Dolor sit.</p>'
+				},
+				{
+					image: 'https://images.pexels.com/photos/59999/raspberries-fruits-fruit-berries-59999.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940', 
+					title: 'maliny',
+			    	description: '<p>Lorem ipsum.</p> <img src="http://via.placeholder.com/400x200" alt="Photo placeholder"> <p>Dolor sit.</p>'
+				},
+			];
+		</script>
+
+		<script id="template-slide" type="x-tmpl-mustache">
+			<div class="carousel-cell" id="{{title}}" style="background-image: url({{image}})">
 				<div class="container">
-					<p>kiwi</p>
+					<h2>{{title}}</h2>
+					<ul>{{{description}}}</ul>
 				</div>
 			</div>
-			<div class="carousel-cell" id="truskawki" style="background-image: url(https://images.pexels.com/photos/46174/strawberries-berries-fruit-freshness-46174.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940)">
-				<div class="container">
-					<p>truskawki</p>
-				</div>
-			</div>
-			<div class="carousel-cell" id="pomarancze" style="background-image: url(https://images.pexels.com/photos/53371/oranges-citrus-fruits-citrus-fruit-fruit-53371.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940)">
-				<div class="container">
-					<p>pomarańcze</p>
-				</div>
-			</div>
-			<div class="carousel-cell" id="banany" style="background-image: url(https://images.pexels.com/photos/41957/banana-fruit-healthy-yellow-41957.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940)">
-				<div class="container">
-					<p>banany</p>
-				</div>
-			</div>
-			<div class="carousel-cell" id="maliny" style="background-image: url(https://images.pexels.com/photos/59999/raspberries-fruits-fruit-berries-59999.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940)">
-				<div class="container">
-					<p>maliny</p>
-				</div>
-			</div>
-		</div><button id="button-restart">RESTART</button>
-	</div>
-	<div class="progress-bar"></div>
-	<script src="vendor/flickity.pkgd.min.js">
-	</script> 
-	<script src="vendor/hash.js">
-	</script> 
-	<script src="js/script.js">
-	</script>
-</body>
+		</script>
+
+		<script src="vendor/flickity.pkgd.min.js"></script> 
+		<script src="vendor/hash.js"></script> 
+		<script src="vendor/mustache.min.js" type="text/javascript"></script>
+		<script src="js/script.js"></script>
+	</body>
 </html>
