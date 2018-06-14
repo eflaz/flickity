@@ -6,7 +6,6 @@
 	Mustache.parse(templateSlide);
 	var listItems = '';
 	for(var i = 0; i < slidesData.length; i++) {
-			console.log(slidesData);
 			listItems += Mustache.render(templateSlide, slidesData[i]);
 		} 
 	mainCarousel.insertAdjacentHTML('beforeend', listItems);
@@ -31,4 +30,19 @@
 		flkty.select(0);
 	});
 
+	window.initMap = function(){
+	  var map = new google.maps.Map(
+	      document.getElementById('map'), {zoom: 2, center: slidesData[0].coords});
+
+	  var marker = '';
+	  for (var i = 0; i < slidesData.length; i++) {
+	  	marker = new google.maps.Marker({position: slidesData[i].coords, map: map});
+	  }
+	};
+
+
 })();
+
+
+
+  
