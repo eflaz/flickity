@@ -21,13 +21,10 @@
 		progress = Math.max(0, Math.min(1, progress));
 		progressBar.style.width = progress * 100 + '%';
 	});
-
-
 	var restartButton = document.getElementById('button-restart');
 	restartButton.addEventListener("click", function() {
 		flkty.select(0);
 	});
-
 	var markerClicked = false;
 	window.initMap = function() {
 		var map = new google.maps.Map(document.getElementById('map'), {
@@ -50,17 +47,11 @@
 			markers.push(marker);
 			addListener(i);
 		}
-
-		flkty.on('change', function(index){
-			if (markerClicked == false) {
+		flkty.on('change', function(index) {
+			if (!markerClicked) {
 				map.panTo(slidesData[index].coords);
 			}
 			markerClicked = false;
 		});
-	};	
-
+	};
 })();
-
-
-
-  
