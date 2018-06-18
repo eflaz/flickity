@@ -1,69 +1,86 @@
 <!DOCTYPE html>
 <html>
-	<head>
-		<meta charset="UTF-8">
-		<title>FLickity Carousel</title>
-		<link href="vendor/normalize.css" rel="stylesheet" type="text/css">
-		<link href="vendor/flickity.min.css" rel="stylesheet" type="text/css">
-		<link href="css/style.css" rel="stylesheet" type="text/css">
-	</head>
-	<body>
-		<header>
-			<h1>My favourite fruits!</h1>
-		</header>
-		<div class="carousel-container">
-			<div class="main-carousel">
-			</div>
-			<button id="button-restart">RESTART</button>
+
+<head>
+	<meta charset="UTF-8">
+	<title>Flickity Carousel</title>
+	<link href="vendor/normalize.css" rel="stylesheet" type="text/css">
+	<link href="vendor/flickity.min.css" rel="stylesheet" type="text/css">
+	<link href="css/style.css" rel="stylesheet" type="text/css">
+</head>
+
+<body>
+	<header>
+		<h1>My favourite fruits!</h1>
+	</header>
+	<div class="carousel-container">
+		<div class="main-carousel">
 		</div>
-		<div class="progress-bar"></div>
-		<div id="map"></div>
-    	<script>
-			var slidesData = [
-				{
-				image: "https://images.pexels.com/photos/867349/pexels-photo-867349.jpeg?auto=compress&cs=tinysrgb&h=750&w=1260", 
+		<button id="button-restart">RESTART</button>
+	</div>
+	<div class="progress-bar"></div>
+	<div id="map"></div>
+	<script>
+		var slidesData = [{
+				image: "https://images.pexels.com/photos/867349/pexels-photo-867349.jpeg?auto=compress&cs=tinysrgb&h=750&w=1260",
 				title: 'kiwi',
-			    description: "<p>Lorem ipsum.</p>",
-			    coords: {lat: -41.676347, lng: 173.402108}, 
+				description: "<p>Lorem ipsum.</p>",
+				coords: {
+					lat: -41.676347,
+					lng: 173.402108
 				},
-				{
-				image: 'https://images.pexels.com/photos/46174/strawberries-berries-fruit-freshness-46174.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940', 
+			},
+			{
+				image: 'https://images.pexels.com/photos/46174/strawberries-berries-fruit-freshness-46174.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940',
 				title: 'truskawki',
-			    description: '<p>Lorem ipsum.</p> <img src="http://via.placeholder.com/400x200" alt="Photo placeholder"> <p>Dolor sit.</p>',
-			    coords: {lat: 53.883729, lng: 18.121805}, 
+				description: '<p>Lorem ipsum.</p> <img src="http://via.placeholder.com/400x200" alt="Photo placeholder"> <p>Dolor sit.</p>',
+				coords: {
+					lat: 53.883729,
+					lng: 18.121805
 				},
-				{
-				image: 'https://images.pexels.com/photos/53371/oranges-citrus-fruits-citrus-fruit-fruit-53371.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940', 
+			},
+			{
+				image: 'https://images.pexels.com/photos/53371/oranges-citrus-fruits-citrus-fruit-fruit-53371.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940',
 				title: 'pomarancze',
-			    description: '<p>Lorem ipsum.</p> <img src="http://via.placeholder.com/400x200" alt="Photo placeholder"> <p>Dolor sit.</p>',
-			    coords: {lat: -6.179460, lng: -58.051410}, 
+				description: '<p>Lorem ipsum.</p> <img src="http://via.placeholder.com/400x200" alt="Photo placeholder"> <p>Dolor sit.</p>',
+				coords: {
+					lat: -6.179460,
+					lng: -58.051410
 				},
-				{
-				image: 'https://images.pexels.com/photos/41957/banana-fruit-healthy-yellow-41957.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940', 
+			},
+			{
+				image: 'https://images.pexels.com/photos/41957/banana-fruit-healthy-yellow-41957.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940',
 				title: 'banany',
-			    description: '<p>Lorem ipsum.</p> <img src="http://via.placeholder.com/400x200" alt="Photo placeholder"> <p>Dolor sit.</p>',
-			    coords: {lat: 7.698670, lng: 21.397826}, 
+				description: '<p>Lorem ipsum.</p> <img src="http://via.placeholder.com/400x200" alt="Photo placeholder"> <p>Dolor sit.</p>',
+				coords: {
+					lat: 7.698670,
+					lng: 21.397826
 				},
-				{
-				image: 'https://images.pexels.com/photos/59999/raspberries-fruits-fruit-berries-59999.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940', 
+			},
+			{
+				image: 'https://images.pexels.com/photos/59999/raspberries-fruits-fruit-berries-59999.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940',
 				title: 'maliny',
-			    description: '<p>Lorem ipsum.</p> <img src="http://via.placeholder.com/400x200" alt="Photo placeholder"> <p>Dolor sit.</p>',
-			    coords: {lat: 50.939236, lng: 21.957613}, 
+				description: '<p>Lorem ipsum.</p> <img src="http://via.placeholder.com/400x200" alt="Photo placeholder"> <p>Dolor sit.</p>',
+				coords: {
+					lat: 50.939236,
+					lng: 21.957613
 				},
-			];
-		</script>
-		<script id="template-slide" type="x-tmpl-mustache">
-			<div class="carousel-cell" id="{{title}}" style="background-image: url({{image}})">
-				<div class="container">
-					<h2>{{title}}</h2>
-					<ul>{{{description}}}</ul>
-				</div>
+			},
+		];
+	</script>
+	<script id="template-slide" type="x-tmpl-mustache">
+		<div class="carousel-cell" id="{{title}}" style="background-image: url({{image}})">
+			<div class="container">
+				<h2>{{title}}</h2>
+				<ul>{{{description}}}</ul>
 			</div>
-		</script>
-		<script src="vendor/flickity.pkgd.min.js"></script> 
-		<script src="vendor/hash.js"></script> 
-		<script src="vendor/mustache.min.js" type="text/javascript"></script>
-		<script src="js/script.js"></script>
-		<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCYKLpF_qn40Vob-CmYJsz-cLD0tuDuLNo&callback=initMap"></script>
-	</body>
+		</div>
+	</script>
+	<script src="vendor/flickity.pkgd.min.js"></script>
+	<script src="vendor/hash.js"></script>
+	<script src="vendor/mustache.min.js" type="text/javascript"></script>
+	<script src="js/script.js"></script>
+	<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCYKLpF_qn40Vob-CmYJsz-cLD0tuDuLNo&callback=initMap"></script>
+</body>
+
 </html>

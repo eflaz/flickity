@@ -30,7 +30,7 @@
 			zoom: 2,
 			center: slidesData[0].coords
 		});
-		
+
 		for (var i = 0; i < slidesData.length; i++) {
 			new google.maps.Marker({
 				position: slidesData[i].coords,
